@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 /*
- * A Binary Search Tree of type T
+ * A Binary Search Tree that stores ints, this tree does not store duplicates
  */
 
  public class BST {
@@ -41,26 +41,43 @@ import java.util.ArrayList;
 
     public boolean insert(int val){
         if(this.root == null){
-            root = new BSTNode(val);
+            this.root = new BSTNode(val);
             size += 1;
-            return true;
+            return true; 
+        }
+       
+        return insertInternal(val, this.root);
+    }
+
+    private boolean insertInternal(int val, BSTNode root){
+        
+        if(root.val == val){ // duplicate value
+            return false;
         }
         else{
-            if(this.root.val > val){
-                this.root.left = new BSTNode(val);
-                size+=1;
-                return true;
+            if(root.val < val){
+                if(root.left == null){
+                    root.left = new BSTNode(val);
+                    size += 1; 
+                    return true;
+                }
+                else
+                    return insertInternal(val, root.left);
             }
-            else if(this.root.val < val){
-                this.root.right = new BSTNode(val);
-                size+=1;
-                return true;
+
+            if(root.val > val){
+                if(root.right == null){
+                    root.right = new BSTNode(val);
+                    size += 1; 
+                    return true;
+                }
+                else
+                    return insertInternal(val, root.right);
             }
-            else{ // equal case
-                return false;
-            }
+
         }
-       //return false;
+        
+        return false;
     }
 
     public List<Integer> inorderTraversal(){
@@ -79,8 +96,15 @@ import java.util.ArrayList;
        
         
         BST b = new BST(5);
-        System.out.println(b.size());
         b.insert(10);
+        b.insert(8);
+        b.insert(5);
+        b.insert(6);
+
+        b.insert(9);
+        b.insert(56);
+        b.insert(45);
+        b.insert(60);
         System.out.println(b.size());
 
     }
