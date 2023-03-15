@@ -55,7 +55,7 @@ import java.util.ArrayList;
             return false;
         }
         else{
-            if(root.val < val){
+            if(val < root.val){
                 if(root.left == null){
                     root.left = new BSTNode(val);
                     size += 1; 
@@ -65,7 +65,7 @@ import java.util.ArrayList;
                     return insertInternal(val, root.left);
             }
 
-            if(root.val > val){
+            if(val > root.val){
                 if(root.right == null){
                     root.right = new BSTNode(val);
                     size += 1; 
@@ -80,10 +80,25 @@ import java.util.ArrayList;
         return false;
     }
 
-    public List<Integer> inorderTraversal(){
-        //TODO: implement this 
-        return null;
+    public List<Integer> inorder(){
+        
+        return inorderHelper(root, new ArrayList<Integer>());
     }
+
+    private List<Integer> inorderHelper(BSTNode root, List<Integer> runningOrder){
+        
+        if(root != null){
+            inorderHelper(root.left, runningOrder);
+            runningOrder.add(root.val);
+            //System.out.println("adding: " + root.val );
+            inorderHelper(root.right, runningOrder);
+           // return runningOrder;
+        }
+
+
+        return runningOrder;
+    }
+    
 
     public List<Integer> levelorderTraversal(){
         //TODO: implement this 
@@ -105,7 +120,10 @@ import java.util.ArrayList;
         b.insert(56);
         b.insert(45);
         b.insert(60);
-        System.out.println(b.size());
+
+        
+       List<Integer> inorderList = b.inorder();
+       System.out.println(inorderList);
 
     }
 
