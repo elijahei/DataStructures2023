@@ -52,8 +52,8 @@ public class Trie {
        
         newNode.isValidString = true;
         newNode.s = s.substring(0, s.length());
-        System.out.println(newNode.s);
-        System.out.println("----------------------------------------------");
+        //System.out.println(newNode.s);
+        //System.out.println("----------------------------------------------");
        
     }
 
@@ -86,9 +86,13 @@ public class Trie {
 
         nn = n.map.get(s.charAt(index));
        
-       
+        if(nn != null){
+            System.out.println(n.s);
+        }
 
         if(nn == null){
+
+            //System.out.println(nn.s);
             
             return false;
         }
