@@ -112,7 +112,12 @@ import java.io.*;
     public static void main(String[] args) {
        
         
-        // BST b = new BST(5);
+        BST b = new BST(42);
+        b.insert(93);
+        b.insert(85);
+        b.insert(104);
+        b.insert(37);
+
         // b.insert(10);
         // b.insert(8);
         // b.insert(5);
@@ -136,26 +141,26 @@ import java.io.*;
         //     i.printStackTrace();
         //  }
 
-        BST bs = null;
+        // BST bs = null;
 
-        try {
-            FileInputStream fileIn = new FileInputStream("/tmp/BST.ser");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            bs = (BST) in.readObject();
-            in.close();
-            fileIn.close();
-         } catch (IOException i) {
-            i.printStackTrace();
-            return;
-         } catch (ClassNotFoundException c) {
-            System.out.println("Employee class not found");
-            c.printStackTrace();
-            return;
-         }
+        // try {
+        //     FileInputStream fileIn = new FileInputStream("/tmp/BST.ser");
+        //     ObjectInputStream in = new ObjectInputStream(fileIn);
+        //     bs = (BST) in.readObject();
+        //     in.close();
+        //     fileIn.close();
+        //  } catch (IOException i) {
+        //     i.printStackTrace();
+        //     return;
+        //  } catch (ClassNotFoundException c) {
+        //     System.out.println("Employee class not found");
+        //     c.printStackTrace();
+        //     return;
+        //  }
 
-         List<Integer> il = bs.inorder();
+         List<Integer> il = b.inorder();
 
-         System.out.println("size is " + bs.size());
+         System.out.println("size is " + b.size());
          System.out.println(il);
 
 
