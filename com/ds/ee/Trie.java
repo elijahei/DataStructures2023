@@ -40,7 +40,6 @@ public class Trie {
 
         TrieNode newNode = new TrieNode();
         this.node.map.put(s.charAt(0), newNode);
-        System.out.println(s.charAt(0));
 
 
         for(int i = 1; i < s.length(); i++){
@@ -48,11 +47,14 @@ public class Trie {
             newNode.s = s.substring(0, i);
             newNode.map.put(s.charAt(i), nNode);
             newNode = nNode;
-            //System.out.println(s.charAt(i));
+           
         }
        
         newNode.isValidString = true;
-        //System.out.println("--------------------------------------------------------");
+        newNode.s = s.substring(0, s.length());
+        System.out.println(newNode.s);
+        System.out.println("----------------------------------------------");
+       
     }
 
 
@@ -63,8 +65,6 @@ public class Trie {
             return false;
         }
 
-        
-        
 
        return checkStringHelper(s, this.node, 0);
     }
@@ -75,7 +75,7 @@ public class Trie {
         TrieNode nn = null;
         if(index == s.length()-1){
             nn = n.map.get(s.charAt(index));
-            if (nn != null && nn.isValidString){
+            if (nn != null && nn.s.equals(s)){
                 return true;
             }
             else{
@@ -85,16 +85,11 @@ public class Trie {
 
 
         nn = n.map.get(s.charAt(index));
-        //System.out.println(s.charAt(index));
-        if(nn != null){
-            System.out.println(nn.s);
-        }
+       
+       
 
         if(nn == null){
-            // System.out.println(index);
-            // System.out.println(n.map);
-            // System.out.println(s.length());
-            // System.out.println(s.charAt(index+1));
+            
             return false;
         }
 
@@ -111,9 +106,9 @@ public class Trie {
         t.insertString("samosa");
         t.insertString("starbucks");
         t.insertString("star");
-        //boolean flag = t.checkString("sammy");
+        
 
-        System.out.println(t.checkString("starbucks"));
+        System.out.println(t.checkString("star"));
     }
     
 }
