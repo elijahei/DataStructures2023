@@ -23,6 +23,7 @@ public class Trie {
         // this.node.map = new HashMap<Character,TrieNode>();
         // this.node.isValidString = false;
         this.node.map.put('$', null);
+        this.node.isValidString = false;
     }
 
     public void insertString(String s){
@@ -43,13 +44,50 @@ public class Trie {
 
     public boolean checkString(String s){
         //TODO: Implement this
-       return false;
+
+        if(s.length() == 0){
+            return false;
+        }
+
+        
+        
+
+       return checkStringHelper(s, this.node, 0);
+    }
+
+    private boolean checkStringHelper(String s, TrieNode n, int index){
+
+        TrieNode nn = null;
+        if(index == s.length()-1){
+            nn = n.map.get(s.charAt(index));
+            if (nn != null && nn.isValidString){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+
+        nn = n.map.get(s.charAt(index));
+        if(nn == null){
+            return false;
+        }
+
+        index += 1;
+        return checkStringHelper(s, nn, index);
     }
 
 
     public static void main(String[] args) {
         Trie t = new Trie();
         t.insertString("hello");
+        t.insertString("hell");
+        t.insertString("samy");
+        t.insertString("samosa");
+        //boolean flag = t.checkString("sammy");
+
+        System.out.println(t.checkString("samy"));
     }
     
 }
