@@ -18,6 +18,7 @@ public class Trie {
        
         HashMap<Character,TrieNode> map; // contains current character, and a TrieNode to the next character in string
         boolean isValidString; // is true if string till here is valid
+        String s; // string till this point
         TrieNode(){
             map = new HashMap<Character,TrieNode>();
             isValidString = false;
@@ -41,15 +42,17 @@ public class Trie {
         this.node.map.put(s.charAt(0), newNode);
         System.out.println(s.charAt(0));
 
+
         for(int i = 1; i < s.length(); i++){
             TrieNode nNode = new TrieNode();
+            newNode.s = s.substring(0, i);
             newNode.map.put(s.charAt(i), nNode);
             newNode = nNode;
-            System.out.println(s.charAt(i));
+            //System.out.println(s.charAt(i));
         }
        
         newNode.isValidString = true;
-        System.out.println("--------------------------------------------------------");
+        //System.out.println("--------------------------------------------------------");
     }
 
 
@@ -82,13 +85,16 @@ public class Trie {
 
 
         nn = n.map.get(s.charAt(index));
-        System.out.println(s.charAt(index));
+        //System.out.println(s.charAt(index));
+        if(nn != null){
+            System.out.println(nn.s);
+        }
 
         if(nn == null){
-            System.out.println(index);
-            System.out.println(n.map);
-            System.out.println(s.length());
-            System.out.println(s.charAt(index+1));
+            // System.out.println(index);
+            // System.out.println(n.map);
+            // System.out.println(s.length());
+            // System.out.println(s.charAt(index+1));
             return false;
         }
 
