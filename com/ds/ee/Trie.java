@@ -9,7 +9,7 @@ import java.util.HashMap;
  */
 
 
-// TODO: debug -- checkString() returns false in some cases when its supposed to return true, example: insert star and starbucks, checkString("starbucks") is false
+
 
 public class Trie {
 
