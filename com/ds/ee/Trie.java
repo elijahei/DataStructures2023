@@ -34,26 +34,31 @@ public class Trie {
 
 
     // inserts s into this Trie
-    public void insertString(String s){
+    public void insertString(String s){ // need to reimplement it, what if prefix 
+                                        //of the string itself already exists need to append to the end of it
         if(s.length() == 0)
             return;
 
-        TrieNode newNode = new TrieNode();
-        this.node.map.put(s.charAt(0), newNode);
+
+        // if(this.node.map.get(s.charAt(0)) == null){
+            
+        // }
+
+        // TrieNode newNode = new TrieNode();
+        // this.node.map.put(s.charAt(0), newNode);
 
 
-        for(int i = 1; i < s.length(); i++){
-            TrieNode nNode = new TrieNode();
-            newNode.s = s.substring(0, i);
-            newNode.map.put(s.charAt(i), nNode);
-            newNode = nNode;
+        // for(int i = 1; i < s.length(); i++){
+        //     TrieNode nNode = new TrieNode();
+        //     newNode.s = s.substring(0, i);
+        //     newNode.map.put(s.charAt(i), nNode);
+        //     newNode = nNode;
            
-        }
+        // }
        
-        newNode.isValidString = true;
-        newNode.s = s.substring(0, s.length());
-        //System.out.println(newNode.s);
-        //System.out.println("----------------------------------------------");
+        // newNode.isValidString = true;
+        // newNode.s = s.substring(0, s.length());
+       
        
     }
 
@@ -108,11 +113,12 @@ public class Trie {
         t.insertString("hell");
         t.insertString("samy");
         t.insertString("samosa");
-        t.insertString("starbucks");
         t.insertString("star");
+        t.insertString("starbucks");
+       
         
 
-        System.out.println(t.checkString("star"));
+        System.out.println(t.checkString("starbucks"));
     }
     
 }
