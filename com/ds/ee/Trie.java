@@ -39,6 +39,31 @@ public class Trie {
         if(s.length() == 0)
             return;
 
+        int index = 0;
+        TrieNode temp = this.node;
+        while(temp.map.get(s.charAt(index)) != null){ // add in this path
+            if((index+1) == (s.length()-1)){
+                
+            }
+            else{
+                temp = temp.map.get(s.charAt(index));
+                index += 1;
+            }
+        }
+
+        // add remaining string from here
+        while(index < s.length()){
+            TrieNode newNode = new TrieNode();
+            temp.map.put(s.charAt(index), newNode);
+            temp = newNode; 
+            index += 1;
+        }
+
+        temp.isValidString = true;
+        temp.s = s.substring(0, s.length());
+
+
+
 
         // if(this.node.map.get(s.charAt(0)) == null){
             
@@ -80,7 +105,7 @@ public class Trie {
         TrieNode nn = null;
         if(index == s.length()-1){
             nn = n.map.get(s.charAt(index));
-            if (nn != null && nn.s.equals(s)){
+            if (nn != null && nn.isValidString){
                 return true;
             }
             else{
@@ -92,7 +117,7 @@ public class Trie {
         nn = n.map.get(s.charAt(index));
        
         if(nn != null){
-            System.out.println(n.s);
+           // System.out.println(n.s);
         }
 
         if(nn == null){
@@ -110,15 +135,22 @@ public class Trie {
     public static void main(String[] args) {
         Trie t = new Trie();
         t.insertString("hello");
-        t.insertString("hell");
-        t.insertString("samy");
-        t.insertString("samosa");
+        // t.insertString("hell");
+        // t.insertString("samy");
+        // t.insertString("samosa");
         t.insertString("star");
         t.insertString("starbucks");
+        t.insertString("try");
+        t.insertString("trying");
+        t.insertString("tryinggg");
        
         
 
-        System.out.println(t.checkString("starbucks"));
+        System.out.println(t.checkString("starb"));
+        System.out.println(t.checkString("try"));
+        System.out.println(t.checkString("trying"));
+        System.out.println(t.checkString("tryingggg"));
+
     }
     
 }
