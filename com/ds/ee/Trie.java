@@ -62,27 +62,6 @@ public class Trie {
         temp.isValidString = true;
         temp.s = s.substring(0, s.length());
 
-
-
-
-        // if(this.node.map.get(s.charAt(0)) == null){
-            
-        // }
-
-        // TrieNode newNode = new TrieNode();
-        // this.node.map.put(s.charAt(0), newNode);
-
-
-        // for(int i = 1; i < s.length(); i++){
-        //     TrieNode nNode = new TrieNode();
-        //     newNode.s = s.substring(0, i);
-        //     newNode.map.put(s.charAt(i), nNode);
-        //     newNode = nNode;
-           
-        // }
-       
-        // newNode.isValidString = true;
-        // newNode.s = s.substring(0, s.length());
        
        
     }
