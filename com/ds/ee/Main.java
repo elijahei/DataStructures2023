@@ -8,12 +8,19 @@ public class Main{
         t.insertString("star");
         t.insertString("starring");
         t.insertString("static");
+        t.insertString("elijah");
         t.insertString("starrer");
         t.insertString("statistics");
         t.insertString("stamp");
         t.insertString("stammer");
 
-        System.out.println(t.checkString("elijah"));
+        System.out.println(t.checkString("starbucks"));
+        System.out.println(t.checkString("star"));
+        System.out.println(t.checkString("static"));
+        System.out.println(t.checkString("stammer"));
+        System.out.println(t.checkString("stammer"));
+        System.out.println(t.checkString("stamp"));
+        System.out.println(t.checkString("starring"));
 
     }
 

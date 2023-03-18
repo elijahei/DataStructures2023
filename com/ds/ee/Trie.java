@@ -40,17 +40,14 @@ class Trie {
 
         int index = 0;
         TrieNode temp = this.node;
-        while(temp.map.get(s.charAt(index)) != null){ // add in this path
-            if((index+1) == (s.length()-1)){
-                
-            }
-            else{
-                temp = temp.map.get(s.charAt(index));
-                index += 1;
-            }
+        while(index < s.length() && temp.map.get(s.charAt(index)) != null){ // add in this path
+           
+            temp = temp.map.get(s.charAt(index));
+            index += 1;
+           
         }
 
-        // add remaining string from here
+        // add remaining string from here -- new nodes from here
         while(index < s.length()){
             TrieNode newNode = new TrieNode();
             temp.map.put(s.charAt(index), newNode);
@@ -58,11 +55,10 @@ class Trie {
             index += 1;
         }
 
+        // string added
         temp.isValidString = true;
         temp.s = s.substring(0, s.length());
 
-       
-       
     }
 
 
