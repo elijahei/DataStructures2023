@@ -1,12 +1,19 @@
 package com.ds.ee;
-import com.ds.ee.BST;
+
 
 public class Main{
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        
-        BST b = new BST(5);
-        System.out.println(b.size);
+        Trie t = new Trie();
+        t.insertString("starbucks");
+        t.insertString("star");
+        t.insertString("starring");
+        t.insertString("static");
+        t.insertString("starrer");
+        t.insertString("statistics");
+        t.insertString("stamp");
+        t.insertString("stammer");
+
+        System.out.println(t.checkString("elijah"));
 
     }
 

@@ -9,7 +9,7 @@ import java.io.*;
  * A Binary Search Tree that stores ints, this tree does not store duplicates
  */
 
- public class BST implements java.io.Serializable{
+ class BST implements java.io.Serializable{
 
     class BSTNode implements java.io.Serializable{ // inner class
         int val;

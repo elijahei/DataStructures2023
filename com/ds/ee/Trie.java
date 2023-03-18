@@ -10,8 +10,7 @@ import java.util.HashMap;
 
 
 
-
-public class Trie {
+class Trie {
 
    
     class TrieNode{
@@ -34,8 +33,8 @@ public class Trie {
 
 
     // inserts s into this Trie
-    public void insertString(String s){ // need to reimplement it, what if prefix 
-                                        //of the string itself already exists need to append to the end of it
+    public void insertString(String s){ 
+        
         if(s.length() == 0)
             return;
 
@@ -111,25 +110,25 @@ public class Trie {
     }
 
 
-    public static void main(String[] args) {
-        Trie t = new Trie();
-        t.insertString("hello");
-        // t.insertString("hell");
-        // t.insertString("samy");
-        // t.insertString("samosa");
-        t.insertString("star");
-        t.insertString("starbucks");
-        t.insertString("try");
-        t.insertString("trying");
-        t.insertString("tryinggg");
+    // public static void main(String[] args) {
+    //     Trie t = new Trie();
+    //     t.insertString("hello");
+    //     // t.insertString("hell");
+    //     // t.insertString("samy");
+    //     // t.insertString("samosa");
+    //     t.insertString("star");
+    //     t.insertString("starbucks");
+    //     t.insertString("try");
+    //     t.insertString("trying");
+    //     t.insertString("tryinggg");
        
         
 
-        System.out.println(t.checkString("starb"));
-        System.out.println(t.checkString("try"));
-        System.out.println(t.checkString("trying"));
-        System.out.println(t.checkString("tryingggg"));
+    //     System.out.println(t.checkString("starb"));
+    //     System.out.println(t.checkString("try"));
+    //     System.out.println(t.checkString("trying"));
+    //     System.out.println(t.checkString("tryingggg"));
 
-    }
+    // }
     
 }
