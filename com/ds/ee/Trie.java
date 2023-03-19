@@ -1,6 +1,9 @@
 package com.ds.ee;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Set;
 
 /*.
  * File: Trie.java
@@ -17,7 +20,8 @@ class Trie {
        
         HashMap<Character,TrieNode> map; // contains current character, and a TrieNode to the next character in string
         boolean isValidString; // is true if string till here is valid
-        String s; // string till this point
+        String str; // string till this point
+        
         TrieNode(){
             map = new HashMap<Character,TrieNode>();
             isValidString = false;
@@ -25,10 +29,12 @@ class Trie {
     }
 
     TrieNode node; 
+    int numStrings;
 
     public Trie(){
         this.node = new TrieNode();
         this.node.isValidString = false;
+        numStrings = 0;
     }
 
 
@@ -57,8 +63,10 @@ class Trie {
 
         // string added
         temp.isValidString = true;
-        temp.s = s.substring(0, s.length());
-
+        temp.str = new String(s);
+        this.numStrings += 1;
+       
+        
     }
 
 
@@ -103,6 +111,26 @@ class Trie {
 
         index += 1;
         return checkStringHelper(s, nn, index);
+    }
+
+
+
+    public List<String> getAllStrings(){
+        return getAllStringsHelper(this.node, new ArrayList<String>());
+    }
+
+    private List<String> getAllStringsHelper(TrieNode currNode, List<String> l){
+
+        Set<Character> s = currNode.map.keySet();
+      
+        for(Character c : s){
+            TrieNode n = currNode.map.get(c);
+            l = getAllStringsHelper(n, l);
+            if(n.str != null){
+                l.add(n.str);
+            }
+        }
+        return l;
     }
 
 
