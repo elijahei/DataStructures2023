@@ -97,15 +97,8 @@ class Trie {
 
 
         nn = n.map.get(s.charAt(index));
-       
-        if(nn != null){
-           // System.out.println(n.s);
-        }
 
-        if(nn == null){
-
-            //System.out.println(nn.s);
-            
+        if(nn == null){            
             return false;
         }
 
@@ -115,6 +108,7 @@ class Trie {
 
 
 
+    // returns a list of all strings in this trie
     public List<String> getAllStrings(){
         return getAllStringsHelper(this.node, new ArrayList<String>());
     }
@@ -132,27 +126,5 @@ class Trie {
         }
         return l;
     }
-
-
-    // public static void main(String[] args) {
-    //     Trie t = new Trie();
-    //     t.insertString("hello");
-    //     // t.insertString("hell");
-    //     // t.insertString("samy");
-    //     // t.insertString("samosa");
-    //     t.insertString("star");
-    //     t.insertString("starbucks");
-    //     t.insertString("try");
-    //     t.insertString("trying");
-    //     t.insertString("tryinggg");
-       
-        
-
-    //     System.out.println(t.checkString("starb"));
-    //     System.out.println(t.checkString("try"));
-    //     System.out.println(t.checkString("trying"));
-    //     System.out.println(t.checkString("tryingggg"));
-
-    // }
     
 }
