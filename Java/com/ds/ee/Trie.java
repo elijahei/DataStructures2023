@@ -126,5 +126,14 @@ class Trie {
         }
         return l;
     }
+
+    // returns all prefixes of s if s is in the trie, returns null otherwise
+    public List<String> getAllPrefixes(String s){
+        //TODO: implement this 
+
+        return null;
+    }
+
+
     
 }
