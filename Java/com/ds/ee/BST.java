@@ -9,13 +9,13 @@ import java.io.*;
  * A Binary Search Tree that stores ints, this tree does not store duplicates
  */
 
- class BST implements java.io.Serializable{
+ class BST<T extends Comparable> {
 
-    class BSTNode implements java.io.Serializable{ // inner class
-        int val;
+    class BSTNode { // inner class
+        T val;
         BSTNode right;
         BSTNode left;
-        BSTNode(int val){
+        BSTNode(T val){
             this.val = val;
             this.right = null;
             this.left = null;
@@ -30,7 +30,7 @@ import java.io.*;
         this.size = 0;
     }
 
-    public BST(int val){
+    public BST(T val){
         this.root = new BSTNode(val);
         this.size = 1;
     }
@@ -40,7 +40,7 @@ import java.io.*;
         return this.size;
     }
 
-    public boolean insert(int val){
+    public boolean insert(T val){
         if(this.root == null){
             this.root = new BSTNode(val);
             size += 1;
@@ -50,7 +50,7 @@ import java.io.*;
         return insertInternal(val, this.root);
     }
 
-    private boolean insertInternal(int val, BSTNode root){
+    private boolean insertInternal(T val, BSTNode root){
         
         if(root.val == val){ // duplicate value
             return false;
@@ -112,56 +112,9 @@ import java.io.*;
     public static void main(String[] args) {
        
         
-        BST b = new BST(42);
-        b.insert(93);
-        b.insert(85);
-        b.insert(104);
-        b.insert(37);
+       
 
-        // b.insert(10);
-        // b.insert(8);
-        // b.insert(5);
-        // b.insert(6);
-
-        // b.insert(9);
-        // b.insert(56);
-        // b.insert(45);
-        // b.insert(60);
-
-        
-        // try {
-        //     FileOutputStream fileOut =
-        //     new FileOutputStream("/tmp/BST.ser");
-        //     ObjectOutputStream out = new ObjectOutputStream(fileOut);
-        //     out.writeObject(b);
-        //     out.close();
-        //     fileOut.close();
-        //     System.out.printf("Serialized data is saved in /tmp/BST.ser");
-        //  } catch (IOException i) {
-        //     i.printStackTrace();
-        //  }
-
-        // BST bs = null;
-
-        // try {
-        //     FileInputStream fileIn = new FileInputStream("/tmp/BST.ser");
-        //     ObjectInputStream in = new ObjectInputStream(fileIn);
-        //     bs = (BST) in.readObject();
-        //     in.close();
-        //     fileIn.close();
-        //  } catch (IOException i) {
-        //     i.printStackTrace();
-        //     return;
-        //  } catch (ClassNotFoundException c) {
-        //     System.out.println("Employee class not found");
-        //     c.printStackTrace();
-        //     return;
-        //  }
-
-         List<Integer> il = b.inorder();
-
-         System.out.println("size is " + b.size());
-         System.out.println(il);
+     
 
 
     }
