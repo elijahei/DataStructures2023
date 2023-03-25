@@ -139,10 +139,6 @@ import java.io.*;
 
 
     public static void main(String[] args) {
-       
-        BST<Integer> bs = new BST<Integer>();
-        bs.insert(5);
-       
 
      
 

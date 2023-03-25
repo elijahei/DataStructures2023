@@ -4,12 +4,7 @@ package com.ds.ee;
 public class Main{
     public static void main(String[] args) {
        
-    //    Trie t = new Trie();
-    //    t.insertString("Puja");
-    //    t.insertString("put");
-
-    //   System.out.println(t.getAllStrings());
-
+   
         BST<Integer> bs = new BST<Integer>();
         bs.insert(10);
         bs.insert(5);
