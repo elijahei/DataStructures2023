@@ -5,12 +5,14 @@ public class Main{
     public static void main(String[] args) {
        
    
-        BST<Integer> bs = new BST<Integer>();
-        bs.insert(10);
-        bs.insert(5);
-        bs.insert(4);
-        bs.insert(20);
-        bs.insert(15);
+        BST<String> bs = new BST<String>();
+        bs.insert("elijah");
+        bs.insert("hura");
+        bs.insert("rishi");
+        bs.insert("rahul");
+        bs.insert("alan");
+        bs.insert("alina");
+        bs.insert("edrem");
         System.out.println("checking...");
         System.out.println(bs.levelorderTraversal());
     }

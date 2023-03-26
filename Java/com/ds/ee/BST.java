@@ -7,6 +7,12 @@ import java.util.LinkedList;
 import java.io.*;
 
 
+/*.
+ * File: BST.java
+ * Author: Elijah Einstein <einsteine98@gmail.com>
+ * 
+ */
+
 /*
  * A Binary Search Tree that stores ints, this tree does not store duplicates
  */
@@ -138,12 +144,12 @@ import java.io.*;
     
 
 
-    public static void main(String[] args) {
+    // public static void main(String[] args) {
 
      
 
 
-    }
+    // }
 
 
 }
