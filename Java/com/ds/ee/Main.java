@@ -6,15 +6,14 @@ public class Main{
        
    
         BST<String> bs = new BST<String>();
-        bs.insert("elijah");
-        bs.insert("hura");
-        bs.insert("rishi");
-        bs.insert("rahul");
-        bs.insert("alan");
-        bs.insert("alina");
-        bs.insert("edrem");
-        System.out.println("checking...");
+        bs.insert("MtAiry");
+        bs.insert("Nashville");
+        bs.insert("Beckley");
+        bs.insert("Dayton");
+        bs.insert("Chicago");
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         System.out.println(bs.levelorderTraversal());
+        System.out.println(bs.inorder());
     }
 
 }
