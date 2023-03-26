@@ -108,7 +108,35 @@ import java.io.*;
 
         return runningOrder;
     }
+
+    public List<T> preorder(){
+        return this.preorderHelper(root, new ArrayList<T>());
+    }
     
+    private List<T> preorderHelper(BSTNode root, List<T> runningOrder){
+        if(root != null){
+            runningOrder.add(root.val);
+            preorderHelper(root.left, runningOrder);
+            preorderHelper(root.right, runningOrder);
+        }
+        return runningOrder;
+    }
+
+
+    public List<T> postorder(){
+        return this.postorderHelper(root, new ArrayList<T>());
+    }
+    
+    private List<T> postorderHelper(BSTNode root, List<T> runningOrder){
+        if(root != null){
+            
+            postorderHelper(root.left, runningOrder);
+            postorderHelper(root.right, runningOrder);
+            runningOrder.add(root.val);
+        }
+        return runningOrder;
+    }
+
 
     public List<List<T>> levelorderTraversal(){
         //TODO: implement this 

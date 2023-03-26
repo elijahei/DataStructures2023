@@ -14,6 +14,8 @@ public class Main{
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         System.out.println(bs.levelorderTraversal());
         System.out.println(bs.inorder());
+        System.out.println(bs.preorder());
+        System.out.println(bs.postorder());
     }
 
 }
