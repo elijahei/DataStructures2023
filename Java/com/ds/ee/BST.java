@@ -90,6 +90,22 @@ import java.io.*;
         return false;
     }
 
+    // delete eleme from bst if elem is in bst and return true, else return false
+    public boolean delete(T elem){
+
+        //TODO: implement this
+
+        return false;
+    }
+
+
+    // return true if key is in bst, else return false
+    public boolean isPresent(T key){
+        //TODO: implement this
+
+        return false;
+    }
+
     public List<T> inorder(){
         
         return inorderHelper(root, new ArrayList<T>());
