@@ -13,9 +13,12 @@ public class Main{
         bs.insert("Chicago");
         System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         System.out.println(bs.levelorderTraversal());
-        System.out.println(bs.inorder());
-        System.out.println(bs.preorder());
-        System.out.println(bs.postorder());
+        // System.out.println(bs.inorder());
+        // System.out.println(bs.preorder());
+        // System.out.println(bs.postorder());
+
+      
+
     }
 
 }

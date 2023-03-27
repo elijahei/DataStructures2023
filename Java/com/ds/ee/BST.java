@@ -93,7 +93,25 @@ import java.io.*;
     // delete eleme from bst if elem is in bst and return true, else return false
     public boolean delete(T elem){
 
-        //TODO: implement this
+        
+
+        return deleteHelper(root, elem);
+    }
+
+
+    private boolean deleteHelper(BSTNode root, T elem){
+
+        // yet to implement 
+        
+        if(root == null){
+            return false;
+        }
+
+        if(root.val.compareTo(elem) == 0){ // elem to delete
+            if(root.left == null && root.right != null){
+
+            }
+        }
 
         return false;
     }
@@ -101,9 +119,22 @@ import java.io.*;
 
     // return true if key is in bst, else return false
     public boolean isPresent(T key){
-        //TODO: implement this
+        
 
-        return false;
+        return isPresentHelper(root, key);
+    }
+
+    private boolean isPresentHelper(BSTNode root, T key){
+
+        if(root == null){
+            return false;
+        }
+
+        if(root.val.compareTo(key) == 0){ // key found
+            return true;
+        }
+
+        return isPresentHelper(root.left, key) || isPresentHelper(root.right, key);
     }
 
     public List<T> inorder(){
@@ -155,7 +186,7 @@ import java.io.*;
 
 
     public List<List<T>> levelorderTraversal(){
-        //TODO: implement this 
+        
 
         List<List<T>> topList = new ArrayList<List<T>>();
         List<T> levelList = new ArrayList<T>();
