@@ -13,11 +13,13 @@ public class Main{
         bs.insert(30);
         bs.insert(27);
         bs.insert(45);
+        bs.insert(65);
+        bs.insert(75);
+        bs.insert(85);
+
 
         System.out.println(bs.levelorderTraversal());
-        //System.out.println(bs.inorder());
-        System.out.println(bs.delete(10));
-        System.out.println(bs.levelorderTraversal());
+        System.out.println(bs.height());
 
       
 

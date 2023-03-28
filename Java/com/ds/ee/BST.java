@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Queue;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.io.*;
 
 
 /*.
@@ -297,15 +296,27 @@ import java.io.*;
 
         return topList;
     }
-    
 
 
-    // public static void main(String[] args) {
+    public int height(){
+        return heightHelper(root, 0);
+    }
 
-     
+    private int heightHelper(BSTNode root, int height){
 
-
-    // }
+        if(root.left == null && root.right == null){ // leaf node -- base case
+            return height;
+        }
+        int leftHeight = 0, rightHeight = 0;
+        if(root.right != null){
+            rightHeight = heightHelper(root.right, height+1);
+        }
+        if(root.left != null){
+            leftHeight = heightHelper(root.left, height+1);
+        }
+        
+        return Math.max(leftHeight, rightHeight);
+    }
 
 
 }
