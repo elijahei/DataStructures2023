@@ -118,8 +118,10 @@ import java.io.*;
                     this.size -= 1;
                     return true;
                 }
-                else{ // TODO: implement root node case
-
+                else{ // root case
+                    this.root = curr.right;
+                    this.size -= 1;
+                    return true;
                 }
             }
 
@@ -134,8 +136,10 @@ import java.io.*;
                     this.size -= 1;
                     return true;
                 }
-                else{ // TODO: implement root node case
-
+                else{ // root case
+                    this.root = curr.left;
+                    this.size -= 1;
+                    return true;
                 }
             }
 
@@ -150,18 +154,47 @@ import java.io.*;
                     this.size -=1; 
                     return true;
                 }
-                else{ // TODO: implement root node case
-
+                else{ // root case
+                    this.root = null; // tree is now empty
+                    this.size -= 1;
+                    return true; 
                 }
             }
 
             if(curr.right != null && curr.left != null){
-                // TODO: implement this
+                
+                curr.val = this.inorderSuccessor(curr, curr.right); // inorder successor decrements size
+                return true;
             }
         }
+
+        
         
 
-        return false;
+        return deleteHelper(curr, curr.left, elem) || deleteHelper(curr, curr.right, elem);
+    }
+
+
+    // helper method called by deleteHelper(), this method finds the inorder successor of curr node, deletes
+    // it and returns the inorder successors val
+    private T inorderSuccessor(BSTNode parent, BSTNode curr){ 
+
+        if(curr.left != null){
+            return inorderSuccessor(curr, curr.left);
+        }
+       else if(curr.right != null){
+            return inorderSuccessor(curr, curr.right);
+       }
+       else{ // curr is the inorderSuccrssor -- base case -- delete curr node 
+            if(parent.left == curr){
+                parent.left = null;
+            }
+            else{
+                parent.right = null;
+            }
+            this.size -= 1;
+            return curr.val;
+       }
     }
 
 
