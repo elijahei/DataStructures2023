@@ -95,23 +95,71 @@ import java.io.*;
 
         
 
-        return deleteHelper(root, elem);
+        return deleteHelper(null, root, elem);
     }
 
 
-    private boolean deleteHelper(BSTNode root, T elem){
+    private boolean deleteHelper(BSTNode parent, BSTNode curr, T elem){
 
-        // yet to implement 
         
-        if(root == null){
+        if(curr == null){
             return false;
         }
+        
+        if(curr.val.compareTo(elem) == 0){ // curr to be deleted
+            if(curr.left == null && curr.right != null){
+                if(parent != null){ // non root
+                    if(parent.left == curr){
+                        parent.left = curr.right;
+                    }
+                    else{
+                        parent.right = curr.right;
+                    }
+                    this.size -= 1;
+                    return true;
+                }
+                else{ // TODO: implement root node case
 
-        if(root.val.compareTo(elem) == 0){ // elem to delete
-            if(root.left == null && root.right != null){
+                }
+            }
 
+            if(curr.right == null && curr.left != null){
+                if(parent != null){
+                    if(parent.left == curr){
+                        parent.left = curr.left; 
+                    }
+                    else{
+                        parent.right = curr.left;
+                    }
+                    this.size -= 1;
+                    return true;
+                }
+                else{ // TODO: implement root node case
+
+                }
+            }
+
+            if(curr.right == null && curr.left == null){
+                if(parent != null){
+                    if(parent.left == curr){
+                        parent.left = null;
+                    }
+                    else{
+                        parent.right = null;
+                    }
+                    this.size -=1; 
+                    return true;
+                }
+                else{ // TODO: implement root node case
+
+                }
+            }
+
+            if(curr.right != null && curr.left != null){
+                // TODO: implement this
             }
         }
+        
 
         return false;
     }
