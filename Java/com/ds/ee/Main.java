@@ -5,21 +5,16 @@ public class Main{
     public static void main(String[] args) {
        
    
-        BST<Integer> bs = new BST<Integer>();
-        bs.insert(10);
-        bs.insert(7);
-        bs.insert(25);
-        bs.insert(15);
-        bs.insert(30);
-        bs.insert(27);
-        bs.insert(45);
-        bs.insert(65);
-        bs.insert(75);
-        bs.insert(85);
+       MyLinkedList<String> ml = new MyLinkedList<>();
+       ml.insert("Elijah");
+       ml.insert("Chicago");
+       ml.insert("Beckley");
+       ml.insert("Nashville");
 
-
-        System.out.println(bs.levelorderTraversal());
-        System.out.println(bs.height());
+       System.out.println(ml.getAllElems());    
+       ml.remove("Beckley");
+       System.out.println(ml.getAllElems());
+       System.out.println(ml.size());
 
       
 

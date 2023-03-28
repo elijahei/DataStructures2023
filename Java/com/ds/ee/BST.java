@@ -60,7 +60,7 @@ import java.util.LinkedList;
 
     private boolean insertInternal(T val, BSTNode root){
         
-        if(root.val == val){ // duplicate value
+        if(root.val.compareTo(val) == 0){ // duplicate value
             return false;
         }
         else{
@@ -317,6 +317,5 @@ import java.util.LinkedList;
         
         return Math.max(leftHeight, rightHeight);
     }
-
 
 }
