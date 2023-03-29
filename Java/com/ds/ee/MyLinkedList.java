@@ -86,6 +86,46 @@ public class MyLinkedList<T extends Comparable> {
         return retList;
     }
 
+    public T pop(){
+        if(this.head == null){
+            throw new RuntimeException("MyLinkedList is Empty!");
+        }
+        T retVal = this.head.elem;
+        this.head = this.head.next;
+        return retVal;
+    }
+
+    public boolean update(T oldElem, T newElem){
+        if(this.head == null)
+            return false;
+        ListNode curr = this.head;
+        while(curr != null){
+            if(curr.elem.compareTo(oldElem) == 0){
+                curr.elem = newElem;
+                return true;
+            }
+            curr = curr.next;
+        }
+        return false;
+    }
+
+    
+    public void Merge(MyLinkedList<T> oml){
+
+        if(this.head == null){
+            this.head = oml.head;
+            this.size = oml.size;
+            return;
+        }
+
+        ListNode curr = this.head;
+        while(curr.next != null){
+            curr = curr.next;
+        }
+        curr.next = oml.head;
+        this.size += oml.size;
+    }
+
     public void removeDuplicates(){
         // TODO: implement this
     }

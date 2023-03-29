@@ -11,12 +11,16 @@ public class Main{
        ml.insert("Beckley");
        ml.insert("Nashville");
 
-       System.out.println(ml.getAllElems());    
-       ml.remove("Beckley");
+       System.out.println(ml.getAllElems());
+      
+       MyLinkedList<String> ml2 = new MyLinkedList<>();
+       ml2.insert("Airbus");
+       ml2.insert("Boeing");
+
+       ml.Merge(ml2);
        System.out.println(ml.getAllElems());
        System.out.println(ml.size());
 
-      
 
     }
 
