@@ -1,55 +1,64 @@
 #include <iostream>
+#include "BST.h"
+
+using namespace std;
 
 
-class BST{
 
-    public:
-
-    struct Node{
-        int data;
-        Node* right;
-        Node* left;
-        
-    };
-
-    Node* root; 
-    int size;
-
-
-    // insert data into this BST
-    bool insert(int data){
-        //TODO: implement this
-        return false;
+void BST::insert(int elem_){
+    if(root == nullptr){
+        cout << "here adding 1 " << endl;
+        root = new BSTNode(elem_);
+        size += 1;
+        return;
     }
 
-    // if data exists in this BST, remove it and return data, else return -1 if does not exist
-    int remove(int data){
-        //TODO: implement this
-        return -1;
-    }
+    return BST::insert_helper(root, elem_);
+}
 
-    // return true if data is in BST, false otherwise
-    bool search(int data){
-        //TODO: implement this
-        return false;
-    }
-
-    // return height of thie BST, root's height is 0
-    int height(){
-        //TODO: implement this
-        return 0;
-    }
-
-    
-
-    
+int BST::get_size(){
+    return size;
+}
 
 
-};
+ void BST::insert_helper(BSTNode* curr, int elem_){
+
+            if(elem_ < curr->elem){
+                if(curr->left == nullptr){
+                    curr->left = new BSTNode(elem_);
+                    size += 1;
+                    return;
+                }
+                else   
+                    return insert_helper(curr->left, elem_);
+            }
+            else{ 
+                if(curr->right == nullptr){
+                    curr->right = new BSTNode(elem_);
+                     size += 1;
+                    return;
+                }
+                else   
+                    return insert_helper(curr->right, elem_);
+            }
+ }
+
+
+
+
+
+
+
 
 int main(){
 
-    std::cout << "need to implement BST" << std::endl;
+    BST b;
+
+    b.insert(10);
+    // b.insert(5);
+    // b.insert(20);
+
+    // cout << b.get_size() << endl;
 
     return -1;
 }
