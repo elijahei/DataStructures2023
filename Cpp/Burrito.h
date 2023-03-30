@@ -12,6 +12,7 @@ namespace tacobell{
             void print_burr();
             double get_price();
             void set_price(double);
+            Burrito operator+(const Burrito& other);
     };
 
 }
