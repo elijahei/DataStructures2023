@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Burrito.h"
 
+using namespace std;
+
 
 tacobell::Burrito::Burrito(double price, bool is_vegan){
     this->price = price;
@@ -32,15 +34,7 @@ tacobell::Burrito::set_price(double price_){
 
 int main(){
 
-    tacobell::Burrito br(12.5,false);
-
-    br.print_burr();
-
-
-    tacobell::Burrito* vbr = new tacobell::Burrito(9.25, true);
-    vbr->print_burr();
-
-    std::cout << br.get_price() << " " << vbr->get_price() << std::endl;
+   
 
     return -1;
 }
