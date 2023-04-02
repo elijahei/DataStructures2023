@@ -318,4 +318,12 @@ import java.util.LinkedList;
         return Math.max(leftHeight, rightHeight);
     }
 
+    // returns the diameter of this BST
+    public int diameter(){
+        //TODO: implement this
+        return 0;
+    }
+
+    
+
 }

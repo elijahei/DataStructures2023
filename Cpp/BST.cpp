@@ -6,8 +6,9 @@ using namespace std;
 
 
 void BST::insert(int elem_){
+    //cout << "inside here" << endl;
     if(root == nullptr){
-        cout << "here adding 1 " << endl;
+        //cout << "here adding 1 " << endl;
         root = new BSTNode(elem_);
         size += 1;
         return;
@@ -43,7 +44,26 @@ int BST::get_size(){
             }
  }
 
+bool BST::find(int elem_){
 
+    return BST::find_helper(this->root, elem_);
+}
+
+
+bool BST::find_helper(BSTNode* root, int elem_){
+
+    if(root == nullptr)
+        return false;
+    
+    if(root->elem == elem_)
+        return true;
+    
+    else if(elem_ < root->elem)
+        return BST::find_helper(root->left, elem_);
+    
+    else
+        return BST::find_helper(root->right,elem_);
+}
 
 
 
@@ -55,10 +75,10 @@ int main(){
     BST b;
 
     b.insert(10);
-    // b.insert(5);
-    // b.insert(20);
+    b.insert(5);
+    b.insert(20);
 
-    // cout << b.get_size() << endl;
+    cout << b.find(20) << endl;
 
     return -1;
 }

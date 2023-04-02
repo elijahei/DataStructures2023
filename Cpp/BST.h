@@ -24,15 +24,22 @@ class BST{
 
     public:
 
+       BST(){
+        this->root = nullptr;
+        size = 0;
+       }
+
        int get_size();
 
        void insert(int);
 
-       bool search(int);
+       bool find(int);
 
        bool remove(int);
     
-        void insert_helper(BSTNode*, int);
+       void insert_helper(BSTNode*, int);
+
+       bool find_helper(BSTNode*, int);
 
 
         vector<int> inorder();
