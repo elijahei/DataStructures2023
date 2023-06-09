@@ -6,7 +6,7 @@ class Random{
         insertSort(arr, arr.length);
         
         for(int i = 0; i < arr.length; i++)
-            System.out.println(arr[i]);
+            System.out.print(arr[i] + ", ");
 
 
     }
@@ -15,16 +15,22 @@ class Random{
     public static void insertSort(int[] arr, int n){
 
         for(int i = 1; i < n; i++){
-            int key = arr[i];
+            
+            int ki = i;
+            int key = arr[ki];
             // Insert key into sorted position in arr[0:i-1]
-            int j = i-1;
+            int j = ki-1;
 
-            while (j >= 0 && arr[j] > key){
-                j = j-1;
-            }
-            if(j >= 0){
-                arr[i] = arr[j];
-                arr[j] = key;
+            while (j >= 0){
+                if(arr[j] > key){
+                    arr[ki] = arr[j];
+                    arr[j] = key;
+                    ki = j; 
+                    key = arr[ki];
+                    j = ki-1;
+                }
+                else
+                    j = j-1;
             }
         }
     }
