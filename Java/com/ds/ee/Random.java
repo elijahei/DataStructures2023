@@ -2,7 +2,7 @@
 class Random{
 
     public static void main(String[] args) {
-        int[] arr = {31,41,59,26,41,58};
+        int[] arr = {777,330,320,757,31,41,59,26,41,58};
         insertSort(arr, arr.length);
         
         for(int i = 0; i < arr.length; i++)
@@ -11,7 +11,7 @@ class Random{
 
     }
 
-    // TODO: Incorrect Algo - write correct algo
+    // TODO: Is this insertion sort or bubble sort?
     public static void insertSort(int[] arr, int n){
 
         for(int i = 1; i < n; i++){
@@ -33,5 +33,11 @@ class Random{
                     j = j-1;
             }
         }
+    }
+
+    
+    public static void selectionSort(int[] arr, int n){
+
+        // implement this
     }
 }
