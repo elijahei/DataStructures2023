@@ -15,6 +15,9 @@ public class Main{
                 String data = myReader.nextLine();
                 System.out.println(data);
             }
+            //System.out.println(f.getAbsolutePath());
+            File newFile = new File("bullshit.txt");
+
             myReader.close();
         }
         catch(Exception fne){
@@ -25,5 +28,8 @@ public class Main{
 
 
     }
+
+
+  
 
 }
