@@ -1,23 +1,28 @@
 package com.ds.ee;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 
 public class Main{
     public static void main(String[] args) {
 
         try{
-            ArrayList<String> lis = new ArrayList<String>(Files.readAllLines(Paths.get("random.txt")));
-            System.out.println(lis);
+            File f = new File("com/ds/ee/random.txt");
+            Scanner myReader = new Scanner(f);
+            while(myReader.hasNextLine()){
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
         }
-        catch(IOException ioe){
-            ioe.printStackTrace();
+        catch(Exception fne){
+            fne.printStackTrace();
         }
+
+
+
 
     }
 
