@@ -24,6 +24,8 @@ class Player {
     }
 
     public void setHp(int hp) {
+        if(this.maxHP < hp)
+            this.maxHP = hp;
         this.hp = hp;
     }
 
