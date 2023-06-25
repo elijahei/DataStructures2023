@@ -128,6 +128,10 @@ public class MyLinkedList<T extends Comparable> {
 
     public void removeDuplicates(){
         // TODO: implement this
+        ListNode current = head;
+        while(current != null) {
+            System.out.println(current.elem);
+        }
     }
     
 }
