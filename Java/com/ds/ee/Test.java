@@ -47,24 +47,43 @@ class Car extends Vehicle {
     }
 
     public boolean isWorthIt(){
-        if (this.price < 50000.0)
-            return true;
-        else
-            return false;
+        return this.price < 50000.0;
     }
 
 }
+
+interface Animal{
+     public void animalSound();
+     public void run();
+}
+
+abstract class Dog implements Animal{
+
+    @Override
+    public void animalSound() {
+        System.out.println("boo");
+    }
+
+}
+
+class Pluto extends Dog{
+
+    @Override
+    public void run() {
+        System.out.println("fast!");
+    }
+}
+
 
 public class Test{
 
 
     public static void main(String[] args) {
-        Vehicle v1 = new Car("Chevy", 350, "Blazer", 45000.0);
-        //System.out.println(c1);
-        v1.average();
-       // v1.isWorthIt();
 
-        //Car c2 = new Vehicle("Ford", 450);
+        Animal ani = new Pluto();
+        ani.run();
+
+
     }
 
 }
