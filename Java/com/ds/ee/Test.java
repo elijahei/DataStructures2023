@@ -1,88 +1,60 @@
 package com.ds.ee;
 
 
+import jdk.jshell.spi.ExecutionControlProvider;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.IllegalFormatException;
+import java.util.Iterator;
+import java.util.Scanner;
 
 
 
- class Vehicle {
-    protected String brand;
-    protected int horsePower;
+class Parent{
 
-    Vehicle(String brand, int horsePower) {
-        //System.out.println("initializing vehicle members");
-        this.brand = brand;
-        this.horsePower = horsePower;
+    public static void m1(){
+        System.out.println("parent");
+    }
+}
+
+
+class Child extends Parent{
+
+
+    public static void m1() {
+        System.out.println("child");
     }
 
-    @Override
-    public String toString() {
-        //System.out.println("still toString of vehicle!");
-        return "Brand:" + this.brand + ", HP:" + Integer.toString(horsePower);
-    }
-
-    public double average(){
-        return 50.0;
-    }
 
 }
 
-class Car extends Vehicle {
-
-    private String name;
-    private double price;
-
-    Car(String brand, int horsePower, String name, double price) {
-        super(brand, horsePower);
-        this.name = name;
-        this.price = price;
-    }
+class MyThread extends Thread{
 
     @Override
-    public String toString(){
-        return "Brand:" + this.brand + ", Name:" + this.name + ", Price:$" + this.price + ", HP:" + this.horsePower;
+    public void run(){
+        System.out.println(Thread.currentThread().getName());
+        for(int i = 0; i < 10; i++){
+            System.out.println("child thread");
+        }
     }
 
-    public double average(){
-        return this.price/2;
-    }
-
-    public boolean isWorthIt(){
-        return this.price < 50000.0;
-    }
-
-}
-
-interface Animal{
-     public void animalSound();
-     public void run();
-}
-
-abstract class Dog implements Animal{
-
-    @Override
-    public void animalSound() {
-        System.out.println("boo");
-    }
-
-}
-
-class Pluto extends Dog{
-
-    @Override
-    public void run() {
-        System.out.println("fast!");
-    }
 }
 
 
 public class Test{
 
+    public static void main(String[] args)  {
 
-    public static void main(String[] args) {
 
-        Animal ani = new Pluto();
-        ani.run();
-
+        MyThread my = new MyThread();
+        my.setPriority(Thread.MAX_PRIORITY);
+        Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+        //System.out.println(Thread.currentThread().getName());
+        my.start();
 
     }
 
