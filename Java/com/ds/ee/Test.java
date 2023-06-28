@@ -32,14 +32,15 @@ class Child extends Parent{
 
 }
 
-class MyThread extends Thread{
+class MyThread implements Runnable{
 
     @Override
     public void run(){
-        System.out.println(Thread.currentThread().getName());
+        //System.out.println(Thread.currentThread().getName());
         for(int i = 0; i < 10; i++){
-            System.out.println("child thread");
+            System.out.println(Thread.currentThread().getName());
         }
+
     }
 
 }
@@ -47,14 +48,19 @@ class MyThread extends Thread{
 
 public class Test{
 
-    public static void main(String[] args)  {
+    public static void main(String[] args)  throws Exception {
 
 
-        MyThread my = new MyThread();
-        my.setPriority(Thread.MAX_PRIORITY);
+        Runnable myRunnable = new MyThread();
+        Thread my = new Thread(myRunnable);
         Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
+        my.setName("Random name!");
         //System.out.println(Thread.currentThread().getName());
         my.start();
+        for(int i = 0; i < 10; i++){
+            my.join();
+            System.out.println("main thread");
+        }
 
     }
 
