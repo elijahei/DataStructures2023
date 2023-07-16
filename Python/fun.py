@@ -1,11 +1,10 @@
 
 
 
-students = [("Elijah","CSE"),("Mark","MAE")] # list of tuples
 
 
 def main():
-   print(students)
+    pass
 
 
 if __name__ == "__main__":
